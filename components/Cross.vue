@@ -1,27 +1,17 @@
 <template>
-  <div class="njx flex items-center">
-    <div>
-      <div class="font-bold">奧丁丁集團</div>
-      <small>人因科學部門</small>
-    </div>
-    <div class="cross"></div>
-    <div>
-      <div class="font-bold">日本第一航太重工NJX</div>
-      <small>未來科技研發</small>
-    </div>
-  </div>
+  <div class="cross"></div>
 </template>
 
 <script>
 export default {
-  name: 'njx'
+  name: 'cross'
 }
 </script>
 
 <style lang="sass" scoped>
 .cross
   +size(30px)
-  margin: 0 1rem
+  // margin: 0 1rem
   position: relative
   &:before,
   &:after

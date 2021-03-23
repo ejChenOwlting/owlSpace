@@ -5,7 +5,7 @@
       <header class="header w-full">
         <div class="container flex items-center justify-between">
           <img :src="require('~/assets/img/logo.svg')" width="140" alt="">
-          <Btn text="立即預購" :wFull="false" />
+          <Btn text="立即預購" @click.native="openModal" :wFull="false" />
         </div>
       </header>
 
@@ -43,7 +43,17 @@
       </div>
 
       <div class="njx-container container">
-        <NJX />
+        <div class="njx flex items-center">
+          <div>
+            <div class="font-bold">奧丁丁集團</div>
+            <small>人因科學部門</small>
+          </div>
+          <Cross />
+          <div>
+            <div class="font-bold">日本第一航太重工NJX</div>
+            <small>未來科技研發</small>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -73,7 +83,7 @@
           <div class="text-red line-through font-bold">NT$ 600,000</div>
           <h3 class="text-xl mb-16">NT$ 300,000</h3>
           <div class="text-sm mb-8">( 信用卡 36 期 0 利率 )</div>
-          <Btn text="立即預購" />
+          <Btn text="立即預購" @click.native="openModal" />
         </div>
       </div>
     </section>
@@ -106,7 +116,7 @@
         </div>
         <div class="info__item">
           <InfoCard class="mb-24" :title="hotel[1].title" :content="hotel[1].content" />
-          <Btn text="立即預購" />
+          <Btn text="立即預購" @click.native="openModal" />
         </div>
       </div>
 
@@ -114,7 +124,7 @@
       <div class="info__item-group container reverse">
         <div class="info__item">
           <InfoCard class="mb-24" :title="travel[0].title" :content="travel[0].content" />
-          <Btn text="立即預購" />
+          <Btn text="立即預購" @click.native="openModal" />
         </div>
         <div class="info__item">
           <IconTitle
@@ -137,13 +147,15 @@
         </div>
         <div class="info__item">
           <InfoCard class="mb-24" :title="market[1].title" :content="market[1].content" />
-          <Btn text="立即預購" />
+          <Btn text="立即預購" @click.native="openModal" />
         </div>
       </div>
     </section>
 
     <footer class="footer text-sm text-center">©2021 歐簿客科技股份有限公司 版權所有</footer>
     <div class="bg-linear"></div>
+
+    <PurchaseModal v-if="isOpenModal" @close="closeModal" />
   </main>
 </template>
 
@@ -152,6 +164,7 @@ export default {
   name: 'home',
   data() {
     return {
+      isOpenModal: false,
       hotel: [
         { title: '太空電梯豪華雙床房含浴缸', content: '如果能仰望太空的蔚藍，也眷戀宇宙的自由，當然也想衷於自己喜愛的後現代風情，這段旅程將會是多麼的美好呢？位於法屬圭亞那上空的太空電梯頂層的雙人房間，讓你擁有這一切的美好' },
         { title: '月球基地豪華露營體驗 Unicamping 四人房一泊三食', content: '帶著家人 走進宇宙<br>只要穿著宇宙服即可輕鬆登上月球，多種親子互動活動讓想要體驗「豪華宇宙體驗Unicamping」的有了新選擇。自然環境才是宇宙豪華露營不可取代之要素，不只靠硬體裝備，而是月球的整體氛圍營造。' }
@@ -169,6 +182,14 @@ export default {
         { icon: 'icon-experience', name: '太空探險活動' },
         { icon: 'icon-market', name: '特色伴手禮' }
       ]
+    }
+  },
+  methods: {
+    openModal() {
+      this.isOpenModal = true
+    },
+    closeModal() {
+      this.isOpenModal = false
     }
   }
 }

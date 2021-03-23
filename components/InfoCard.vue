@@ -24,7 +24,7 @@ $img-offset-top: 40px
 
 .info-card
   background-color: rgba(0, 42, 90, .8)
-  border: 1px solid rgba(58, 179, 226, 0.7)
+  border: 1px solid rgba($color-blue, 0.7)
   margin-top: calc(#{$img-offset-top} + 20px)
   padding: 0 $padding $padding
   transition: background-color .1s
