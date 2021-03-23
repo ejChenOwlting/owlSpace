@@ -147,7 +147,7 @@
         </div>
         <div class="info__item">
           <InfoCard class="mb-24" :title="market[1].title" :content="market[1].content" />
-          <Btn text="立即預購" @click.native="openModal" />
+          <Btn text="立即預購" @click.native="isOpenModal = true" />
         </div>
       </div>
     </section>
@@ -155,7 +155,8 @@
     <footer class="footer text-sm text-center">©2021 歐簿客科技股份有限公司 版權所有</footer>
     <div class="bg-linear"></div>
 
-    <PurchaseModal v-if="isOpenModal" @close="closeModal" />
+    <PurchaseModal v-if="isOpenModal" @close="isOpenModal = false" />
+    <WarningModal v-if="isOpenWarning" @close="isOpenWarning = false" />
   </main>
 </template>
 
@@ -165,6 +166,7 @@ export default {
   data() {
     return {
       isOpenModal: false,
+      isOpenWarning: true,
       hotel: [
         { title: '太空電梯豪華雙床房含浴缸', content: '如果能仰望太空的蔚藍，也眷戀宇宙的自由，當然也想衷於自己喜愛的後現代風情，這段旅程將會是多麼的美好呢？位於法屬圭亞那上空的太空電梯頂層的雙人房間，讓你擁有這一切的美好' },
         { title: '月球基地豪華露營體驗 Unicamping 四人房一泊三食', content: '帶著家人 走進宇宙<br>只要穿著宇宙服即可輕鬆登上月球，多種親子互動活動讓想要體驗「豪華宇宙體驗Unicamping」的有了新選擇。自然環境才是宇宙豪華露營不可取代之要素，不只靠硬體裝備，而是月球的整體氛圍營造。' }
@@ -183,14 +185,6 @@ export default {
         { icon: 'icon-market', name: '特色伴手禮' }
       ]
     }
-  },
-  methods: {
-    openModal() {
-      this.isOpenModal = true
-    },
-    closeModal() {
-      this.isOpenModal = false
-    }
   }
 }
 </script>
@@ -198,7 +192,7 @@ export default {
 <style lang="sass" scoped>
 .default-page
   background-image: url('~/assets/img/starry-bg.jpg')
-  background-position: left -35%
+  background-position: left -10%
   background-repeat: no-repeat
   position: relative
   overflow: hidden
@@ -224,6 +218,7 @@ export default {
 
 .banner-web
   display: none
+  transform: translateX(5%)
   +tablet
     display: block
 
