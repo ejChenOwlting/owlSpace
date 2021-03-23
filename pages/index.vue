@@ -148,7 +148,7 @@
         </div>
         <div class="info__item">
           <InfoCard class="mb-24" :title="market[1].title" :content="market[1].content" />
-          <Btn text="立即預購" @click.native="isOpenModal = true" />
+          <Btn text="立即預購" @click.native="openModal" />
         </div>
       </div>
     </section>
@@ -158,6 +158,7 @@
 
     <PurchaseModal v-if="isOpenModal" @close="isOpenModal = false" />
     <WarningModal v-if="isOpenWarning" @close="isOpenWarning = false" />
+    <LoadingModal />
   </main>
 </template>
 
@@ -197,6 +198,9 @@ export default {
   methods: {
     moveXray(e) {
       this.xrayHeight = e.layerY
+    },
+    openModal() {
+      this.isOpenModal = true
     }
   }
 }
