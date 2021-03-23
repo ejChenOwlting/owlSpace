@@ -4,7 +4,7 @@
       <img class="loading-owlspace" width="238" :src="require('~/assets/img/loading/loading-title.png')" alt="loading-owlspace">
       <div class="rocket-container flex flex-col items-center justify-end">
         <div class="rocket__scale">
-          <div class="text-sm font-bold mb-8">{{percentage}}%</div>
+          <div class="counter text-sm font-bold mb-8">{{percentage.val}}%</div>
           <div class="flex">
             <div class="scale__tube">
               <div class="scale__tube__oil"></div>
@@ -23,11 +23,34 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+
 export default {
   name: 'loading-modal',
   data() {
     return {
-      percentage: 50
+      percentage: { val: 50 }
+    }
+  },
+  mounted() {
+    const tween = gsap.to('.rocket__group', {
+      top: '-300px',
+      duration: 3,
+      onComplete: this.closeModal
+    })
+    const counter = gsap.to(this.percentage, {
+      duration: 3,
+      val: 100,
+      modifiers: {
+        val: value => Math.round(value)
+      }
+    })
+    tween.play()
+    counter.play()
+  },
+  methods: {
+    closeModal() {
+      this.$emit('close')
     }
   }
 }

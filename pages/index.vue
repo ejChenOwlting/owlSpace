@@ -158,7 +158,7 @@
 
     <PurchaseModal v-if="isOpenModal" @close="isOpenModal = false" />
     <WarningModal v-if="isOpenWarning" @close="isOpenWarning = false" />
-    <LoadingModal />
+    <LoadingModal v-if="isOpenLoading" @close="isOpenLoading = false" />
   </main>
 </template>
 
@@ -173,6 +173,7 @@ export default {
   },
   data() {
     return {
+      isOpenLoading: true,
       isOpenModal: false,
       isOpenWarning: true,
       xrayHeight: 0,
