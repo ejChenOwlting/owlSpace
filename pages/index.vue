@@ -32,7 +32,7 @@
             :src="require('~/assets/img/rocket-normal.png')"
             alt="rocket-bg">
         </div>
-        <div class="rocket-img-container rocket-img-container__xray" :style="`top: ${xrayHeight}px`">
+        <div class="rocket-img-container rocket-img-container__xray" :style="`top: ${xrayHeight}`">
           <div class="xray">
             <img class="rocket-img rocket-img__xray"
               width="916"
@@ -159,12 +159,14 @@
     <transition-group name="fade">
     <PurchaseModal v-if="isOpenModal" key="purchase" @close="isOpenModal = false" />
     <WarningModal v-if="isOpenWarning" key="warning" @close="isOpenWarning = false" />
-    <!-- <LoadingModal v-if="isOpenLoading" key="loading" @close="isOpenLoading = false" /> -->
     </transition-group>
+
+    <LoadingModal key="loading" />
   </main>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
@@ -176,14 +178,17 @@ export default {
   name: 'home',
   scrollToTop: true,
   mounted() {
-    this.$refs.rocketContainer.addEventListener('mousemove', this.moveXray)
+    this.$nextTick(() => {
+      if (this.isDesktop) this.$refs.rocketContainer.addEventListener('mousemove', this.moveXray)
+      else this.xrayHeight = '50%'
+    })
 
     ScrollTrigger.create({
       trigger: '.banner-section',
       start: '5px top',
       onEnter: () => {
         gsap.to(window, {
-          duration: 1.5,
+          duration: 1,
           scrollTo: '.rocket-section',
           ease: 'power3.out'
         })
@@ -195,7 +200,7 @@ export default {
       start: 'bottom top',
       onEnterBack: () => {
         gsap.to(window, {
-          duration: 1.5,
+          duration: 1,
           scrollTo: '.banner-section',
           ease: 'power3.out',
         })
@@ -212,10 +217,9 @@ export default {
   },
   data() {
     return {
-      isOpenLoading: true,
       isOpenModal: false,
-      isOpenWarning: true,
-      xrayHeight: 0,
+      isOpenWarning: false,
+      xrayHeight: '0px',
       hotel: [
         { title: '太空電梯豪華雙床房含浴缸', content: '如果能仰望太空的蔚藍，也眷戀宇宙的自由，當然也想衷於自己喜愛的後現代風情，這段旅程將會是多麼的美好呢？位於法屬圭亞那上空的太空電梯頂層的雙人房間，讓你擁有這一切的美好' },
         { title: '月球基地豪華露營體驗 Unicamping 四人房一泊三食', content: '帶著家人 走進宇宙<br>只要穿著宇宙服即可輕鬆登上月球，多種親子互動活動讓想要體驗「豪華宇宙體驗Unicamping」的有了新選擇。自然環境才是宇宙豪華露營不可取代之要素，不只靠硬體裝備，而是月球的整體氛圍營造。' }
@@ -237,11 +241,16 @@ export default {
   },
   methods: {
     moveXray(e) {
-      this.xrayHeight = e.layerY
+      this.xrayHeight = `${e.layerY}px`
     },
     openModal() {
       this.isOpenModal = true
     }
+  },
+  computed: {
+    ...mapGetters({
+      isDesktop: 'app/isDesktop'
+    })
   }
 }
 </script>
@@ -307,7 +316,10 @@ export default {
   &__xray
     +position(absolute, 0)
     border-top: 1px solid white
-    transform: translateY(-10px)
+    transform: translateY(-7px)
+    +tablet
+      top: 0
+      transform: translateY(-10px)
 
     &:before
       +size(100%, 67px)

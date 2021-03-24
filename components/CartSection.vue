@@ -21,7 +21,7 @@
       <div class="cart-section__option-image-container">
         <img class="cart-section__option-image" :src="require('~/assets/img/fake.png')" alt="product">
       </div>
-      <div class="cart-section__option-desc font-bold">{{steps[currentStep].options[index - 1]}}</div>
+      <div class="cart-section__option-desc font-bold text-left">{{steps[currentStep].options[index - 1]}}</div>
     </li>
   </ul>
 
@@ -100,7 +100,7 @@ export default {
     &:not(:last-child)
       margin-bottom: 1.5rem
   &__option-image-container
-    +size(115px, calc(100% + 20px))
+    +size(115px, 82px)
     min-width: 115px
   &__option-image
     +size(100%)

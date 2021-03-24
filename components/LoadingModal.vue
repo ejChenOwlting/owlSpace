@@ -1,5 +1,8 @@
 <template>
-  <div class="loading-modal" v-body-scroll-lock="true">
+  <div class="loading-modal"
+    v-body-scroll-lock="!isAnimationCompleted"
+    :class="{'none': isAnimationCompleted}"
+  >
     <div class="loading-content container flex flex-col items-center justify-center">
       <img class="loading-owlspace" width="238" :src="require('~/assets/img/loading/loading-title.png')" alt="loading-owlspace">
       <div class="rocket-container flex flex-col items-center justify-end">
@@ -29,28 +32,39 @@ export default {
   name: 'loading-modal',
   data() {
     return {
+      tl: null,
+      isAnimationCompleted: false,
       percentage: { val: 10 }
     }
   },
   mounted() {
-    let tl = gsap.timeline()
+    this.tl = gsap.timeline()
 
-    tl.to(this.percentage, {
-      duration: 2.5,
-      val: 100,
-      modifiers: {
-        val: value => Math.round(value)
-      }
+    this.$nextTick(() => {
+      this.tl.to(this.percentage, {
+        duration: 2.5,
+        val: 100,
+        modifiers: {
+          val: value => Math.round(value)
+        }
+      })
+      this.tl.to('.rocket__group', {
+        top: '-300px',
+        duration: 2,
+        ease: 'power4.in'
+      }, '-=1')
+      this.tl.to('.loading-modal', {
+        opacity: 0,
+        duration: .5,
+        onComplete: this.animationCompletedHandler
+      })
+      this.tl.play()
     })
-    tl.to('.rocket__group', {
-      top: '-300px',
-      duration: 2,
-      ease: 'power4.in',
-      onComplete: this.closeModal
-    }, '-=1')
-    tl.play()
   },
   methods: {
+    animationCompletedHandler() {
+      this.isAnimationCompleted = true
+    },
     closeModal() {
       this.$emit('close')
     }
@@ -61,9 +75,12 @@ export default {
 <style lang="sass" scoped>
 .loading-modal
   +position(fixed, 0)
+  background-color: $color-bg
   background-image: url('~/assets/img/loading/loading-bg.jpg')
   background-repeat: no-repeat
   z-index: 100
+  &.none
+    display: none
 
 .loading-content
   +size(100%)

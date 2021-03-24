@@ -1,5 +1,5 @@
 <template>
-  <Modal class="flex items-center justify-center">
+  <Modal class="purchase-modal flex items-center justify-center">
     <transition name="fadefast" mode="out-in">
     <CartSection
       v-if="mode === 'cart'"
@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.purchase-modal
+  user-select: none
+
 .section
   background: black
   max-width: 500px
