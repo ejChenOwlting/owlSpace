@@ -156,13 +156,11 @@
     <footer class="footer text-sm text-center">©2021 歐簿客科技股份有限公司 版權所有</footer>
     <div class="bg-linear"></div>
 
-    <PurchaseModal v-if="isOpenModal" @close="isOpenModal = false" />
-    <transition name="fade">
-    <WarningModal v-if="isOpenWarning" @close="isOpenWarning = false" />
-    </transition>
-    <transition name="fade">
-      <LoadingModal v-if="isOpenLoading" @close="isOpenLoading = false" />
-    </transition>
+    <transition-group name="fade">
+    <PurchaseModal v-if="isOpenModal" key="purchase" @close="isOpenModal = false" />
+    <WarningModal v-if="isOpenWarning" key="warning" @close="isOpenWarning = false" />
+    <!-- <LoadingModal v-if="isOpenLoading" key="loading" @close="isOpenLoading = false" /> -->
+    </transition-group>
   </main>
 </template>
 
@@ -176,6 +174,7 @@ gsap.registerPlugin(ScrollToPlugin)
 
 export default {
   name: 'home',
+  scrollToTop: true,
   mounted() {
     this.$refs.rocketContainer.addEventListener('mousemove', this.moveXray)
 
@@ -186,8 +185,7 @@ export default {
         gsap.to(window, {
           duration: 1.5,
           scrollTo: '.rocket-section',
-          ease: 'power3.out',
-          autoKill: true
+          ease: 'power3.out'
         })
       }
     })

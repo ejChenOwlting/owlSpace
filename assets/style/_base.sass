@@ -1,6 +1,11 @@
 html
   font-family: "Noto Sans TC", "PingFangTC-Regular", "Helvetica", "Arial", "Microsoft JhengHei", sans-serif
-  // overflow-x: hidden
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+  margin: 0
 
 body
   background-color: $color-bg
@@ -8,8 +13,6 @@ body
   color: white
   line-height: 1.5rem
   font-size: 16px
-  // width: 100vw
-  // overflow: hidden
 
 img
   pointer-events: none

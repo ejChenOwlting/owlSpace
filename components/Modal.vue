@@ -31,7 +31,7 @@ $frame-width: 20px
 .modal
   +size(100%)
   +position(fixed, 0)
-  background-color: rgba(black, .2)
+  background-color: rgba(white, .1)
   -webkit-backdrop-filter: blur(15px)
   backdrop-filter: blur(15px)
   padding: 1rem
