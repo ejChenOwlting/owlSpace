@@ -218,7 +218,7 @@ export default {
   data() {
     return {
       isOpenModal: false,
-      isOpenWarning: false,
+      isOpenWarning: true,
       xrayHeight: '0px',
       hotel: [
         { title: '太空電梯豪華雙床房含浴缸', content: '如果能仰望太空的蔚藍，也眷戀宇宙的自由，當然也想衷於自己喜愛的後現代風情，這段旅程將會是多麼的美好呢？位於法屬圭亞那上空的太空電梯頂層的雙人房間，讓你擁有這一切的美好' },
