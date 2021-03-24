@@ -5,9 +5,9 @@
       <div class="rocket-container flex flex-col items-center justify-end">
         <div class="rocket__scale">
           <div class="counter text-sm font-bold mb-8">{{percentage.val}}%</div>
-          <div class="flex">
-            <div class="scale__tube">
-              <div class="scale__tube__oil"></div>
+          <div class="rocket__tube flex">
+            <div class="tube">
+              <div class="tube__oil"></div>
             </div>
             <img width="24" :src="require('~/assets/img/loading/loading-scale.png')" alt="rocket-scale">
           </div>
@@ -29,24 +29,26 @@ export default {
   name: 'loading-modal',
   data() {
     return {
-      percentage: { val: 50 }
+      percentage: { val: 10 }
     }
   },
   mounted() {
-    const tween = gsap.to('.rocket__group', {
-      top: '-300px',
-      duration: 3,
-      onComplete: this.closeModal
-    })
-    const counter = gsap.to(this.percentage, {
-      duration: 3,
+    let tl = gsap.timeline()
+
+    tl.to(this.percentage, {
+      duration: 2.5,
       val: 100,
       modifiers: {
         val: value => Math.round(value)
       }
     })
-    tween.play()
-    counter.play()
+    tl.to('.rocket__group', {
+      top: '-300px',
+      duration: 2,
+      ease: 'power4.in',
+      onComplete: this.closeModal
+    }, '-=1')
+    tl.play()
   },
   methods: {
     closeModal() {
@@ -96,8 +98,10 @@ export default {
   position: relative
 
 .rocket__scale
-    +position(absolute, null, -1rem, 2rem, null)
-.scale__tube
+  +position(absolute, null, -1rem, 2rem, null)
+.rocket__tube
+  padding-right: .1rem
+.tube
   +size(6px, 200px)
   background-color: rgba(white, .5)
   border-radius: 6px

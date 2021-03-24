@@ -157,8 +157,12 @@
     <div class="bg-linear"></div>
 
     <PurchaseModal v-if="isOpenModal" @close="isOpenModal = false" />
+    <transition name="fade">
     <WarningModal v-if="isOpenWarning" @close="isOpenWarning = false" />
-    <LoadingModal v-if="isOpenLoading" @close="isOpenLoading = false" />
+    </transition>
+    <transition name="fade">
+      <LoadingModal v-if="isOpenLoading" @close="isOpenLoading = false" />
+    </transition>
   </main>
 </template>
 
