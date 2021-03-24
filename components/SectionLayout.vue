@@ -1,10 +1,10 @@
 <template>
   <section class="section text-center" :class="sectionClass">
     <transition name="fadefast">
-    <div v-show="isShowContent">
-      <Cross class="btn-close" @click.native="closeHandler" />
-      <slot />
-    </div>
+      <div v-show="isShowContent">
+        <Cross class="btn-close" @click.native="closeHandler" />
+        <slot />
+      </div>
     </transition>
   </section>
 </template>

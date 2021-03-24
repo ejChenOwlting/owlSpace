@@ -1,23 +1,23 @@
 <template>
   <Modal class="purchase-modal flex items-center justify-center">
     <transition name="fadefast" mode="out-in">
-    <CartSection
-      v-if="mode === 'cart'"
-      key="cart"
-      @finished="finishedHandler"
-      @close="closeModal"
-    />
+      <CartSection
+        v-if="mode === 'cart'"
+        key="cart"
+        @finished="finishedHandler"
+        @close="closeModal"
+      />
 
-    <SurpriseSection
-      v-else-if="mode === 'done'"
-      key="done"
-      @close="closeModal"
-    />
+      <SurpriseSection
+        v-else-if="mode === 'done'"
+        key="done"
+        @close="closeModal"
+      />
 
-    <section v-else key="loading" class="loading-section section flex items-center justify-between">
-      <div class="text-sm font-bold">載入中...</div>
-      <img class="loading-section__img" width="50" :src="require('~/assets/img/loading/injection.gif')" alt="loading">
-    </section>
+      <section v-else key="loading" class="loading-section section flex items-center justify-between">
+        <div class="text-sm font-bold">載入中...</div>
+        <img class="loading-section__img" width="50" :src="require('~/assets/img/loading/injection.gif')" alt="loading">
+      </section>
     </transition>
   </Modal>
 </template>

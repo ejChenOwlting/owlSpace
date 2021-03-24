@@ -4,7 +4,7 @@
     <section class="banner-section container flex items-center justify-center">
       <header class="header w-full">
         <div class="container flex items-center justify-between">
-          <img :src="require('~/assets/img/logo.svg')" width="140" alt="">
+          <img :src="require('~/assets/img/logo.svg')" width="140" alt="logo">
           <Btn text="立即預購" @click.native="openModal" :wFull="false" />
         </div>
       </header>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="njx-container container">
-        <div class="njx flex items-center">
+        <div class="flex items-center">
           <div>
             <div class="font-bold">奧丁丁集團</div>
             <small>人因科學部門</small>
@@ -59,11 +59,11 @@
     </section>
 
     <!-- Package -->
-    <section class="package-section container text-center">
+    <section class="container text-center">
       <div class="package-year">
         <h2 class="package-year__year">2027</h2>
         <h3 class="package-year__title">首創太空旅行 未來券</h3>
-        <div class="package-year__subtitle">2027年04日01 即將啟航</div>
+        <div>2027年04日01 即將啟航</div>
       </div>
 
       <div class="product-container flex flex-col items-center justify-between">
@@ -158,8 +158,8 @@
 
     <!-- Modals -->
     <transition-group name="fade">
-    <PurchaseModal v-if="isOpenModal" key="purchase" @close="isOpenModal = false" />
-    <WarningModal v-if="isOpenWarning" key="warning" @close="isOpenWarning = false" />
+      <PurchaseModal v-if="isOpenModal" key="purchase" @close="isOpenModal = false" />
+      <WarningModal v-if="isOpenWarning" key="warning" @close="isOpenWarning = false" />
     </transition-group>
 
     <LoadingModal key="loading" />
@@ -228,7 +228,7 @@ export default {
         { title: '月球基地豪華露營體驗 Unicamping 四人房一泊三食', content: '帶著家人 走進宇宙<br>只要穿著宇宙服即可輕鬆登上月球，多種親子互動活動讓想要體驗「豪華宇宙體驗Unicamping」的有了新選擇。自然環境才是宇宙豪華露營不可取代之要素，不只靠硬體裝備，而是月球的整體氛圍營造。' }
       ],
       travel: [
-        { title: '小行星帶體驗宇宙の衝擊震撼５日', content: '搭上OwlSpace專屬火箭前往位於火星和木星間的太陽系小行星帶，體驗與數十萬顆小行星摩擦的快感>////<' },
+        { title: '小行星帶體驗宇宙の衝擊震撼５日', content: '搭上OwlSpace專屬火箭前往位於火星和木星間的太陽系小行星帶，體驗與數十萬顆小行星摩擦的快感 &gt;&sol;&sol;&sol;&sol;&lt;' },
         { title: '捕捉太陽黑子親子體驗單程票（保證會抓到一顆）', content: '免費租借裝備捕捉太陽黑子！太陽黑子可用在許多地方，不管是家庭配菜用料、五星飯店主菜佐料都可以。太陽黑子最廣為人知的用法是放在貓砂內，讓喵星人知道誰才是主人' }
       ],
       market: [
@@ -315,21 +315,20 @@ export default {
 .rocket-container
   position: relative
 
-.rocket-img-container
-  &__xray
-    +position(absolute, 0)
-    border-top: 1px solid white
-    transform: translateY(-7px)
-    +tablet
-      top: 0
-      transform: translateY(-10px)
+.rocket-img-container__xray
+  +position(absolute, 0)
+  border-top: 1px solid white
+  transform: translateY(-7px)
+  +tablet
+    top: 0
+    transform: translateY(-10px)
 
-    &:before
-      +size(100%, 67px)
-      +position(absolute, -68px, 0, null, 0)
-      background: linear-gradient(360deg, rgba($color-blue, 0.38) -7%, rgba($color-blue, 0) 81%)
-      content: ''
-      z-index: -1
+  &:before
+    +size(100%, 67px)
+    +position(absolute, -68px, 0, null, 0)
+    background: linear-gradient(360deg, rgba($color-blue, 0.38) -7%, rgba($color-blue, 0) 81%)
+    content: ''
+    z-index: -1
 
 .xray
   +position(absolute, 0)

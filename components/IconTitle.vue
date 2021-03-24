@@ -4,7 +4,8 @@
     <div class="icon-title__text-group">
       <img width="128" :src="require('~/assets/img/owlspace.svg')" alt="owlspace">
       <h4 class="font-bold">
-        <span class="icon-title__title">{{title}}</span> <small>\ {{subtitle}}</small>
+        <span class="icon-title__title">{{title}}</span>
+        <small>&bsol; {{subtitle}}</small>
       </h4>
     </div>
   </div>

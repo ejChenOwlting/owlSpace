@@ -6,43 +6,43 @@
     @close="closeHandler"
   >
     <div class="cart-section__head mb-16">
-    <div class="flex items-center">
-      <img width="60" :src="require('~/assets/img/icon-hostel.png')" alt="icon-title">
-      <span class="cart-section__head-title text-xl font-bold">{{steps[currentStep].title}}</span>
+      <div class="flex items-center">
+        <img width="60" :src="require('~/assets/img/icon-hostel.png')" alt="icon-title">
+        <span class="cart-section__head-title text-xl font-bold">{{steps[currentStep].title}}</span>
+      </div>
+      <small class="cart-section__head-step font-bold">{{currentStep + 1}}&sol;4</small>
     </div>
-    <small class="cart-section__head-step font-bold">{{currentStep + 1}}/4</small>
-  </div>
-  <ul class="cart-section__option-list">
-    <li class="cart-section__option flex items-center"
-      v-for="index in 2"
-      :key="`step_${currentStep}_${index}`"
-      @click="nextStep"
-    >
-      <div class="cart-section__option-image-container">
-        <img class="cart-section__option-image" :src="require('~/assets/img/fake.png')" alt="product">
-      </div>
-      <div class="cart-section__option-desc font-bold text-left">{{steps[currentStep].options[index - 1]}}</div>
-    </li>
-  </ul>
-
-  <div class="cart-section__step-list flex justify-between items-center font-bold">
-    <template v-for="(step, index) in steps">
-      <div class="cart-section__step"
-        :key="step.title"
-        :class="{'is-active': currentStep >= index}"
+    <ul class="cart-section__option-list">
+      <li class="cart-section__option flex items-center"
+        v-for="index in 2"
+        :key="`step_${currentStep}_${index}`"
+        @click="nextStep"
       >
-        <div class="step-title">
-          <span class="cart-section__step-dot"></span>
-          <small class="cart-section__step-title">{{step.title}}</small>
+        <div class="cart-section__option-image-container">
+          <img class="cart-section__option-image" :src="require('~/assets/img/fake.png')" alt="product">
         </div>
-      </div>
-      <span v-if="index !== steps.length - 1"
-        class="step-line"
-        :key="`${step.title}_line`"
-        :class="{'is-active': currentStep > index}"
-      />
-    </template>
-  </div>
+        <div class="cart-section__option-desc font-bold text-left">{{steps[currentStep].options[index - 1]}}</div>
+      </li>
+    </ul>
+
+    <div class="cart-section__step-list flex justify-between items-center font-bold">
+      <template v-for="(step, index) in steps">
+        <div class="cart-section__step"
+          :key="step.title"
+          :class="{'is-active': currentStep >= index}"
+        >
+          <div class="step-title">
+            <span class="cart-section__step-dot"></span>
+            <small class="cart-section__step-title">{{step.title}}</small>
+          </div>
+        </div>
+        <span v-if="index !== steps.length - 1"
+          class="step-line"
+          :key="`${step.title}_line`"
+          :class="{'is-active': currentStep > index}"
+        />
+      </template>
+    </div>
   </SectionLayout>
 </template>
 
