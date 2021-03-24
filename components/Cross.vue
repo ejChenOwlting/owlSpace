@@ -11,7 +11,6 @@ export default {
 <style lang="sass" scoped>
 .cross
   +size(30px)
-  // margin: 0 1rem
   position: relative
   &:before,
   &:after

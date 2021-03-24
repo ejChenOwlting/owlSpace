@@ -106,7 +106,7 @@
       <div class="info-bg info-bg__2" />
       <div class="info-bg info-bg__3" />
       <div class="info-bg info-bg__4" />
-      <!-- 宇宙旅館 -->
+      <!-- Info / Hotel -->
       <div class="info__item-group container">
         <div class="info__item">
           <IconTitle
@@ -121,7 +121,7 @@
         </div>
       </div>
 
-      <!-- 宇宙探險 -->
+      <!-- Info / Experiences -->
       <div class="info__item-group container reverse">
         <div class="info__item">
           <InfoCard class="mb-24" :title="travel[0].title" :content="travel[0].content" />
@@ -136,8 +136,7 @@
         </div>
       </div>
 
-
-      <!-- 宇宙市集 -->
+      <!-- Info / Market -->
       <div class="info__item-group container">
         <div class="info__item">
           <IconTitle
@@ -153,9 +152,11 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer text-sm text-center">©2021 歐簿客科技股份有限公司 版權所有</footer>
     <div class="bg-linear"></div>
 
+    <!-- Modals -->
     <transition-group name="fade">
     <PurchaseModal v-if="isOpenModal" key="purchase" @close="isOpenModal = false" />
     <WarningModal v-if="isOpenWarning" key="warning" @close="isOpenWarning = false" />
