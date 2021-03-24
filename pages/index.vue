@@ -206,6 +206,11 @@ export default {
   },
   beforeDestroy() {
     this.$refs.rocketContainer.removeEventListener('mousemove', this.moveXray)
+
+    const stList = ScrollTrigger.getAll()
+    for (const st of stList) {
+      st.kill()
+    }
   },
   data() {
     return {
