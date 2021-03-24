@@ -167,10 +167,42 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
+
+gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin)
+
 export default {
   name: 'home',
   mounted() {
     this.$refs.rocketContainer.addEventListener('mousemove', this.moveXray)
+
+    ScrollTrigger.create({
+      trigger: '.banner-section',
+      start: '5px top',
+      onEnter: () => {
+        gsap.to(window, {
+          duration: 1.5,
+          scrollTo: '.rocket-section',
+          ease: 'power3.out',
+          autoKill: true
+        })
+      }
+    })
+
+    ScrollTrigger.create({
+      trigger: '.banner-section',
+      start: 'bottom top',
+      onEnterBack: () => {
+        gsap.to(window, {
+          duration: 1.5,
+          scrollTo: '.banner-section',
+          ease: 'power3.out',
+        })
+      }
+    })
   },
   beforeDestroy() {
     this.$refs.rocketContainer.removeEventListener('mousemove', this.moveXray)
