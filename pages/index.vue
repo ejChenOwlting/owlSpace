@@ -179,31 +179,33 @@ export default {
   scrollToTop: true,
   mounted() {
     this.$nextTick(() => {
-      if (this.isDesktop) this.$refs.rocketContainer.addEventListener('mousemove', this.moveXray)
-      else this.xrayHeight = '50%'
-    })
-
-    ScrollTrigger.create({
-      trigger: '.banner-section',
-      start: '5px top',
-      onEnter: () => {
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: '.rocket-section',
-          ease: 'power3.out'
+      if (this.isDesktop) {
+        this.$refs.rocketContainer.addEventListener('mousemove', this.moveXray)
+        ScrollTrigger.create({
+          trigger: '.banner-section',
+          start: '5px top',
+          onEnter: () => {
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: '.rocket-section',
+              ease: 'power3.out'
+            })
+          }
         })
-      }
-    })
 
-    ScrollTrigger.create({
-      trigger: '.banner-section',
-      start: 'bottom top',
-      onEnterBack: () => {
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: '.banner-section',
-          ease: 'power3.out',
+        ScrollTrigger.create({
+          trigger: '.banner-section',
+          start: 'bottom top',
+          onEnterBack: () => {
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: '.banner-section',
+              ease: 'power3.out',
+            })
+          }
         })
+      } else {
+        this.xrayHeight = '50%'
       }
     })
   },
