@@ -20,20 +20,20 @@ export default {
       { name: 'mobile-web-app-capable', content: 'yes' },
       { hid: 'twitter:site', name: 'twitter:site', content: 'https://www.owlting.com/owlspace' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:image', name: 'twitter:image', content: 'https://static.owlting.com/owlting_official/img/share/home.png' },
+      { hid: 'twitter:image', name: 'twitter:image', content: '/share.jpg' },
       { hid: 'og:title', property: 'og:title', content: '2027 突破大氣層，首創太空旅行未來券' },
       { hid: 'og:description', property: 'og:description', content: '2027 突破大氣層，首創太空旅行未來券' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'OwlSpace' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'https://www.owlting.com/owlspace' },
-      { hid: 'og:image', property: 'og:image', content: 'https://static.owlting.com/owlting_official/img/share/home.png' },
-      { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: 'https://static.owlting.com/owlting_official/img/share/home.png' },
+      { hid: 'og:image', property: 'og:image', content: '/share.jpg' },
+      { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: '/share.jpg' },
       { hid: 'og:image:type', property: 'og:image:type', content: 'image/png' },
       { hid: 'og:image:width', property: 'og:image:width', content: '480' },
       { hid: 'og:image:height', property: 'og:image:height', content: '272' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700' }
     ]
   },
