@@ -41,6 +41,7 @@ export default {
     this.tl = gsap.timeline()
 
     this.$nextTick(() => {
+      this.tl.delay(1)
       this.tl.to(this.percentage, {
         duration: 2.5,
         val: 100,
@@ -48,6 +49,10 @@ export default {
           val: value => Math.round(value)
         }
       })
+      this.tl.to('.tube__oil', {
+        duration: 2.5,
+        height: '100%'
+      }, '<')
       this.tl.to('.rocket__group', {
         top: '-300px',
         duration: 2,
