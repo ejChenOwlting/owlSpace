@@ -1,7 +1,7 @@
 <template>
   <div class="info-card">
     <div class="info-card__image-container mb-16">
-      <img class="info-card__image" :src="require('~/assets/img/fake.png')" alt="product">
+      <img class="info-card__image" :src="require(`~/assets/img/${img}`)" alt="product">
     </div>
     <h5 class="info-card__title text-blue text-lg">{{title}}</h5>
     <div class="text-sm" v-html="content" />
@@ -13,7 +13,11 @@ export default {
   name: 'info-card',
   props: {
     title: String,
-    content: String
+    content: String,
+    img: {
+      type: String,
+      default: 'fake.png'
+    }
   }
 }
 </script>

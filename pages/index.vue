@@ -113,10 +113,17 @@
             :img="require('~/assets/img/icon-hostel.png')"
             title="宇宙旅館"
             subtitle="旅館管理部" />
-          <InfoCard :title="hotel[0].title" :content="hotel[0].content" />
+          <InfoCard
+            img="journey_1.png"
+            :title="hotel[0].title"
+            :content="hotel[0].content" />
         </div>
         <div class="info__item">
-          <InfoCard class="mb-24" :title="hotel[1].title" :content="hotel[1].content" />
+          <InfoCard
+            class="mb-24"
+            img="journey_2.png"
+            :title="hotel[1].title"
+            :content="hotel[1].content" />
           <Btn text="立即預購" @click.native="openModal" />
         </div>
       </div>
@@ -124,7 +131,11 @@
       <!-- Info / Experiences -->
       <div class="info__item-group container reverse">
         <div class="info__item">
-          <InfoCard class="mb-24" :title="travel[0].title" :content="travel[0].content" />
+          <InfoCard
+            class="mb-24"
+            img="experiences_1.png"
+            :title="travel[0].title"
+            :content="travel[0].content" />
           <Btn text="立即預購" @click.native="openModal" />
         </div>
         <div class="info__item">
@@ -132,7 +143,10 @@
             :img="require('~/assets/img/icon-experience.png')"
             title="宇宙探險"
             subtitle="旅行事業部" />
-          <InfoCard :title="travel[1].title" :content="travel[1].content" />
+          <InfoCard
+            img="experiences_2.png"
+            :title="travel[1].title"
+            :content="travel[1].content" />
         </div>
       </div>
 
@@ -143,10 +157,17 @@
             :img="require('~/assets/img/icon-market.png')"
             title="宇宙市集"
             subtitle="食品販賣部" />
-          <InfoCard :title="market[0].title" :content="market[0].content" />
+          <InfoCard
+            img="market_1.png"
+            :title="market[0].title"
+            :content="market[0].content" />
         </div>
         <div class="info__item">
-          <InfoCard class="mb-24" :title="market[1].title" :content="market[1].content" />
+          <InfoCard
+            class="mb-24"
+            img="market_2.png"
+            :title="market[1].title"
+            :content="market[1].content" />
           <Btn text="立即預購" @click.native="openModal" />
         </div>
       </div>
@@ -225,7 +246,7 @@ export default {
       xrayHeight: '0px',
       hotel: [
         { title: '太空電梯豪華雙床房含浴缸', content: '如果能仰望太空的蔚藍，也眷戀宇宙的自由，當然也想衷於自己喜愛的後現代風情，這段旅程將會是多麼的美好呢？位於法屬圭亞那上空的太空電梯頂層的雙人房間，讓你擁有這一切的美好' },
-        { title: '月球基地豪華露營體驗 Unicamping 四人房一泊三食', content: '帶著家人 走進宇宙<br>只要穿著宇宙服即可輕鬆登上月球，多種親子互動活動讓想要體驗「豪華宇宙體驗Unicamping」的有了新選擇。自然環境才是宇宙豪華露營不可取代之要素，不只靠硬體裝備，而是月球的整體氛圍營造。' }
+        { title: '月球基地豪華露營體驗 Unicamping 四人房一泊三食', content: '帶著家人 走進宇宙<br>只要穿著宇宙服即可輕鬆登上月球，多種親子互動活動讓想要體驗「豪華宇宙體驗 Unicamping」的有了新選擇。自然環境才是宇宙豪華露營不可取代之要素，不只靠硬體裝備，而是月球的整體氛圍營造。' }
       ],
       travel: [
         { title: '小行星帶體驗宇宙の衝擊震撼５日', content: '搭上OwlSpace專屬火箭前往位於火星和木星間的太陽系小行星帶，體驗與數十萬顆小行星摩擦的快感 &gt;&sol;&sol;&sol;&sol;&lt;' },
