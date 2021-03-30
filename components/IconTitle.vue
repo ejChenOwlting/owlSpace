@@ -1,6 +1,6 @@
 <template>
   <div class="icon-title flex items-center">
-    <img :src="img" :alt="title">
+    <img width="80" :src="img" :alt="title">
     <div class="icon-title__text-group">
       <img width="128" :src="require('~/assets/img/owlspace.svg')" alt="owlspace">
       <h4 class="font-bold">
