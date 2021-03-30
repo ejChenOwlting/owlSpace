@@ -70,8 +70,8 @@ export default {
         {
           title: '選擇伴手禮',
           options: [
-            { img: 'market_1.png', desc: '宇宙小灰人醃大腸 10斤裝' },
-            { img: 'market_2.png', desc: '火星蟑螂特有種幼體（3月齡以下）10隻裝含運' }
+            { img: 'market_1.png', desc: '宇宙小灰人醃大腸 10 斤裝' },
+            { img: 'market_2.png', desc: '火星蟑螂特有種幼體（3 月齡以下）10 隻裝含運' }
           ]
         },
         { title: '個人資料' }
