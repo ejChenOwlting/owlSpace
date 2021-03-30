@@ -7,7 +7,7 @@
   >
     <div class="cart-section__head mb-16">
       <div class="flex items-center">
-        <img width="60" :src="require('~/assets/img/icon-hostel.png')" alt="icon-title">
+        <img width="60" :src="require(`~/assets/img/${steps[currentStep].icon}`)" alt="icon-title">
         <span class="cart-section__head-title text-xl font-bold">{{steps[currentStep].title}}</span>
       </div>
       <small class="cart-section__head-step font-bold">{{currentStep + 1}}&sol;4</small>
@@ -55,6 +55,7 @@ export default {
       steps: [
         {
           title: '選擇住宿',
+          icon: 'icon-hostel.png',
           options: [
             { img: 'journey_1.png', desc: '太空電梯豪華雙床房含浴缸' },
             { img: 'journey_2.png', desc: '月球基地豪華露營體驗 Unicamping 四人房一泊三食' }
@@ -62,6 +63,7 @@ export default {
         },
         {
           title: '選擇體驗',
+          icon: 'icon-experience.png',
           options: [
             { img: 'experiences_1.png', desc: '小行星帶體驗宇宙の衝擊震撼５日' },
             { img: 'experiences_2.png', desc: '捕捉太陽黑子親子體驗單程票（保證會抓到一顆）' }
@@ -69,6 +71,7 @@ export default {
         },
         {
           title: '選擇伴手禮',
+          icon: 'icon-market.png',
           options: [
             { img: 'market_1.png', desc: '宇宙小灰人醃大腸 10 斤裝' },
             { img: 'market_2.png', desc: '火星蟑螂特有種幼體（3 月齡以下）10 隻裝含運' }
