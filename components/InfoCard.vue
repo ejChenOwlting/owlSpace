@@ -23,8 +23,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$padding: 1.5rem
-$img-offset-top: 40px
+$padding: 1rem
+$img-offset-top: 28px
 
 .info-card
   background-color: rgba(0, 42, 90, .8)
@@ -39,8 +39,8 @@ $img-offset-top: 40px
       color: white
 
   &__image-container
-    +size(calc(100% + #{$padding} * 2), 252px)
-    transform: translateX(calc(-12px - #{$padding}))
+    +size(calc(100% + #{$padding} * 4), 252px)
+    transform: translateX(calc(-#{$padding} * 2))
     margin-top: -$img-offset-top
     +tablet
       height: 278px
