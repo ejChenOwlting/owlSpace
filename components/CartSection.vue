@@ -19,9 +19,9 @@
         @click="nextStep"
       >
         <div class="cart-section__option-image-container">
-          <img class="cart-section__option-image" :src="require('~/assets/img/fake.png')" alt="product">
+          <img class="cart-section__option-image" :src="require(`~/assets/img/${steps[currentStep].options[index - 1].img}`)" alt="product">
         </div>
-        <div class="cart-section__option-desc font-bold text-left">{{steps[currentStep].options[index - 1]}}</div>
+        <div class="cart-section__option-desc font-bold text-left">{{steps[currentStep].options[index - 1].desc}}</div>
       </li>
     </ul>
 
@@ -53,9 +53,27 @@ export default {
     return {
       currentStep: 0,
       steps: [
-        { title: '選擇住宿', options: ['太空電梯豪華雙床房含浴缸', '月球基地豪華露營體驗 Unicamping 四人房一泊三食'] },
-        { title: '選擇體驗', options: ['小行星帶體驗宇宙の衝擊震撼５日', '捕捉太陽黑子親子體驗單程票（保證會抓到一顆）'] },
-        { title: '選擇伴手禮', options: ['宇宙小灰人醃大腸 10斤裝', '火星蟑螂特有種幼體（3月齡以下）10隻裝含運'] },
+        {
+          title: '選擇住宿',
+          options: [
+            { img: 'journey_1.png', desc: '太空電梯豪華雙床房含浴缸' },
+            { img: 'journey_2.png', desc: '月球基地豪華露營體驗 Unicamping 四人房一泊三食' }
+          ]
+        },
+        {
+          title: '選擇體驗',
+          options: [
+            { img: 'experiences_1.png', desc: '小行星帶體驗宇宙の衝擊震撼５日' },
+            { img: 'experiences_2.png', desc: '捕捉太陽黑子親子體驗單程票（保證會抓到一顆）' }
+          ]
+        },
+        {
+          title: '選擇伴手禮',
+          options: [
+            { img: 'market_1.png', desc: '宇宙小灰人醃大腸 10斤裝' },
+            { img: 'market_2.png', desc: '火星蟑螂特有種幼體（3月齡以下）10隻裝含運' }
+          ]
+        },
         { title: '個人資料' }
       ]
     }
@@ -92,7 +110,9 @@ export default {
     border: 1px solid $color-blue
     color: $color-blue
     cursor: pointer
+    min-height: 100px
     padding: .5rem
+    position: relative
     transition: background-color .1s
     +hover
       background-color: rgba(69, 100, 136, .9)
@@ -100,13 +120,15 @@ export default {
     &:not(:last-child)
       margin-bottom: 1.5rem
   &__option-image-container
-    +size(115px, 82px)
-    min-width: 115px
+    +size(115px, 100%)
+    +position(absolute, null, null, 10px, 12px)
   &__option-image
     +size(100%)
     object-fit: cover
   &__option-desc
-    padding: 0 1.5rem
+    padding: 0 .75rem 0 calc(.75rem + 115px)
+    +tablet
+      padding: 0 1.5rem 0 calc(1.5rem + 115px)
   &__option-list
     margin-bottom: 80px
 

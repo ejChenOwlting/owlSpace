@@ -2,7 +2,7 @@
   <SectionLayout
     sectionClass="surprise-section"
     height="444px"
-    heightMobile="360px"
+    heightMobile="380px"
     @close="closeHandler"
   >
     <img class="surprise-section__img mb-24" width="350" :src="require('~/assets/img/message-img.png')" alt="surprise">
