@@ -55,12 +55,22 @@ export default {
       }, '<')
       this.tl.to('.rocket__group', {
         top: '-300px',
-        duration: 2,
+        duration: 2.5,
         ease: 'power4.in'
       }, '-=1')
+      this.tl.to('.rocket-container', {
+        bottom: '-100%',
+        duration: 2,
+        ease: 'power2.in'
+      }, '<')
+      this.tl.to('.loading-owlspace', {
+        opacity: 0,
+        duration: 2,
+        ease: 'power3.in'
+      }, '<')
       this.tl.to('.loading-modal', {
         opacity: 0,
-        duration: .5,
+        duration: 1,
         onComplete: this.animationCompletedHandler
       })
       this.tl.play()
