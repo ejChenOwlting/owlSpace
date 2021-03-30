@@ -4,7 +4,7 @@
     :class="{'none': isAnimationCompleted}"
   >
     <div class="loading-content container flex flex-col items-center justify-center">
-      <img class="loading-owlspace" width="238" :src="require('~/assets/img/loading/loading-title.png')" alt="loading-owlspace">
+      <img class="loading-owlspace" width="290" :src="require('~/assets/img/loading/loading-title.png')" alt="loading-owlspace">
       <div class="rocket-container flex flex-col items-center justify-end">
         <div class="rocket__scale">
           <div class="counter text-sm font-bold mb-8">{{percentage.val}}%</div>
@@ -120,6 +120,7 @@ export default {
   +tablet
     +position(absolute, 20%, null, null, 1rem)
     margin-bottom: 0
+    max-width: 290px
 
 .rocket-container
   +size(250px, 400px)
