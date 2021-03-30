@@ -51,7 +51,6 @@ export default {
 .section
   background: black
   max-width: 500px
-  padding: 2.5rem 1.5rem
   position: relative
 
 .loading-section
